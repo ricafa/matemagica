@@ -16,7 +16,7 @@ function startIt(){
     }
     num2_1.value = '';
     tot_1 .value = parseInt(num1_1.value)+getRandomInt();
-
+    $("#mytext").focus();
 }
 bt_ok.addEventListener('click', (event) => {
     if (parseInt(num1_1.value)+parseInt(num2_1.value) == parseInt(tot_1.value)){
@@ -24,7 +24,7 @@ bt_ok.addEventListener('click', (event) => {
             title: 'PARABÉNS!',
             html: 'RESPOSTA CERTA',
             icon: 'success',
-            confirmButtonText: 'PRÓXIMA!'
+            confirmButtonText: 'PRÓXIMA!',
         }).then((result) => {
             if (result.isConfirmed) {
                 startIt();
@@ -37,7 +37,17 @@ bt_ok.addEventListener('click', (event) => {
         Swal.fire({
             title: 'TENTE NOVAMENTE',
             html: 'RESPOSTA ERRADA',
-            icon: 'error'
+            icon: 'error',
         });
     }
 });
+
+/*
+//the second enter, submit the submited form. keep calling the same thing, 
+//when it must click on confirm button at the alert message
+document.addEventListener('keypress', function(e){
+    if(e.which == 13){
+      bt_ok.click();
+    }
+  }, false);
+*/
